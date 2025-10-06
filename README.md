@@ -1,12 +1,12 @@
-# Laravel Task Manager
+# Task Manager (Laravel 11)
 
-Simple Task Management web app built with Laravel.
+A simple task management web application with CRUD, filters, and drag-and-drop reordering.
 
 ## Features
-- Create / Read / Update / Delete tasks.
-- Mark tasks completed / incomplete.
-- Reorder tasks via drag & drop.
-- Filter tasks: All / Completed / Incomplete.
+- Create, Edit, Delete tasks
+- Mark Complete / Incomplete
+- Reorder tasks
+- Filter tasks (All / Completed / Incomplete)
 
 ## Requirements
 - PHP 8.2.12
@@ -14,12 +14,51 @@ Simple Task Management web app built with Laravel.
 - Composer
 - MySQL
 
-## Quick start
+## Installation
+
+Follow these steps to get the project running locally:
+
+### Clone the repository
+
+Make sure to clone from the **main branch**:
+
 ```bash
-git clone https://github.com/laveenakach/task-manager.git
+git clone -b main https://github.com/laveenakach/task-manager.git
+
+### navigate to project directory
+
 cd task-manager
+
+### run commands
+
 composer install
+
 cp .env.example .env
+
 php artisan key:generate
-php artisan migrate --seed
+
+### Configure database
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3307
+DB_DATABASE=task-manager
+DB_USERNAME=root
+DB_PASSWORD=
+
+### run migrations
+
+php artisan migrate
+
+### seed data
+php artisan db:seed --class=TaskSeeder
+
+### start local deployment server
+
 php artisan serve
+
+### By default, the app runs on:
+
+http://localhost:8000
+
+
